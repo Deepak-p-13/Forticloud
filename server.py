@@ -1,6 +1,8 @@
 import socket
 
 def start_server(host, port):
+    host = "192.168.101.81"  # Set your server IP address
+    port = 1234 
     # Create a socket object
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Bind to the address and port
@@ -20,8 +22,7 @@ def start_server(host, port):
 
 def handle_connection(conn):
     with conn:
-        # Send a message to the client
-        conn.send(b"Hello client! Send me a file.")
+        
 
         # Receive the file from the client
         with open('helloclient.txt', 'wb') as f:
@@ -44,7 +45,4 @@ def handle_connection(conn):
         print('Connection closed')
 
 if __name__ == "__main__":
-    host = "192.168.46.81"  # Set your server IP address
-    port = 1234 # Set the port number you want to listen on
-
-    start_server(host, port)
+    start_server(0,0)
